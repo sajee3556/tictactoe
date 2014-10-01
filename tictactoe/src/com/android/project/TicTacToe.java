@@ -26,12 +26,10 @@ public class TicTacToe extends Activity {
         
         final ImageView iv_new_game = (ImageView) findViewById(R.id.new_game);
         final ImageView iv_options = (ImageView) findViewById(R.id.options);
-        final ImageView iv_help = (ImageView) findViewById(R.id.help);
         final ImageView iv_quit = (ImageView) findViewById(R.id.quit);
         
         iv_new_game.setOnClickListener(welcome_listener);
         iv_options.setOnClickListener(welcome_listener);
-        iv_help.setOnClickListener(welcome_listener);
         iv_quit.setOnClickListener(welcome_listener);
     }
     
@@ -46,9 +44,6 @@ public class TicTacToe extends Activity {
     		}
     		else if(iv.getId() == R.id.options) {
     			options_menu();
-    		}
-    		else if (iv.getId() == R.id.help) {
-    			showDialog(HELP_DIALOG_ID);
     		}
     		else if (iv.getId() == R.id.quit) {
     			finish();
@@ -73,7 +68,6 @@ public class TicTacToe extends Activity {
     		Button ok_b = (Button) mdialog.findViewById(R.id.ok);
     		ok_b.setOnClickListener(new OnClickListener() {
     			public void onClick(View v) {
-    				change_skin();
     				player_name_2 = namep1.getText();
     				player_name_1 = namep2.getText();
     				score_player_1 = 0;
@@ -153,11 +147,7 @@ public class TicTacToe extends Activity {
     	options_builder.setTitle("Options");
     	options_builder.setItems(options_items, new DialogInterface.OnClickListener() {
     		public void onClick(DialogInterface dialog, int item) {
-    			if(options_items[item] == "Change Skin")
-    				select_skin();
-    			else if (options_items[item] == "Choose Symbol")
-    				symbol_select();
-    			else if(options_items[item] == "Game Mode")
+    			if(options_items[item] == "Game Mode")
     				mode_select();
     			else if(options_items[item] == "Player Name")
     				showDialog(NAME_DIALOG_ID);
@@ -226,71 +216,12 @@ public class TicTacToe extends Activity {
     /**
      * Creates an Alert Dialog for selecting the Skin for the game.
      * */
-    public void select_skin() {
-    	final CharSequence[] skin_items = {"Neo Blue", "Sweet Pink", "Ninja" , "Crimson", "Default"};
-    	
-    	AlertDialog.Builder skin_builder = new AlertDialog.Builder(this);
-    	skin_builder.setItems(skin_items, new DialogInterface.OnClickListener() {
-    		public void onClick(DialogInterface dialog, int item) {
-    			Toast.makeText(getApplicationContext(), "Skin changed to " + skin_items[item], Toast.LENGTH_SHORT).show();
-	         
-    			if(skin_items[item] == "Neo Blue") {
-    				skin = 0;
-    				change_skin();
-    			}
-    			else if (skin_items[item] == "Sweet Pink") {
-    				skin = 1;
-    				change_skin();
-    			}
-    			else if(skin_items[item] == "Ninja") {
-    				skin = 2;
-    				change_skin();
-    			}
-    			else if (skin_items[item] == "Crimson") {
-    				skin = 3;
-    				change_skin();
-    			}
-    			else if (skin_items[item] == "Default") {
-    				skin = 4;
-    				change_skin();
-    			}
-    		}	
-    	});
-    	skin_builder.show();
-    }
+   
     
     /**
      * Sets the skin for the game and starts a new game with the New Skin.
      * */
-    public void change_skin() {    		
-    	if (skin == 1) {
-    		skin_dot = R.drawable.gal_dot;
-    		skin_cross = R.drawable.gal_cross;
-    		skin_layout = R.layout.gal_layout;
-    	}
-    	else if (skin == 2) {
-    		skin_dot = R.drawable.ninja_dot;
-    		skin_cross = R.drawable.ninja_cross;
-    		skin_layout = R.layout.ninja_layout;
-    	}
-    	else if (skin == 3) {
-    		skin_dot = R.drawable.red_dot;
-    		skin_cross = R.drawable.red_cross;
-    		skin_layout = R.layout.red_layout;
-    	}
-    	else if (skin == 0) {
-    		skin_dot = R.drawable.default_dot;
-    		skin_cross = R.drawable.default_cross;
-    		skin_layout = R.layout.main;
-    	}
-    	else if (skin == 4) {
-    		skin_dot = R.drawable.system_dot;
-    		skin_cross = R.drawable.system_cross;
-    		skin_layout = R.layout.system_layout;
-    	}
-    	
-    	showDialog(NAME_DIALOG_ID);
-    }
+   
     
     // ---------------------------- End of options section ---------------------------------- //
     
