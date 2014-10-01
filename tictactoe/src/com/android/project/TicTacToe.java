@@ -77,12 +77,6 @@ public class TicTacToe extends Activity {
     			}
     		});
             break;
-            
-        case HELP_DIALOG_ID :
-        	mdialog.setContentView(R.layout.help);
-            mdialog.setTitle("Help");
-            mdialog.setCancelable(true);
-        	break;
         default:
             mdialog = null;
         }
@@ -151,8 +145,6 @@ public class TicTacToe extends Activity {
     				mode_select();
     			else if(options_items[item] == "Player Name")
     				showDialog(NAME_DIALOG_ID);
-    			else if (options_items[item] == "Help")
-    				showDialog(HELP_DIALOG_ID);
     			else if (options_items[item] == "Go Back")
     				return;
     		}	
@@ -240,7 +232,7 @@ public class TicTacToe extends Activity {
 	int user_symbol = 0;			// default 0: 0 to user, X to computer.
 	boolean sound_enabled = true;	// default  : sound ON.
 	
-	int skin = 4;		// def:0; gal:1; ninja:2; red:3; system:4;
+	//int skin = 4;		// def:0; gal:1; ninja:2; red:3; system:4;
 	int skin_cross = R.drawable.default_cross;	// default values.
 	int skin_dot = R.drawable.default_dot;		// default values.
 	int skin_layout = R.layout.main;			// default values.
@@ -261,10 +253,13 @@ public class TicTacToe extends Activity {
     
     // dialog IDs
     final int NAME_DIALOG_ID = 1;
-    final int HELP_DIALOG_ID = 2;
+   
 	
 	//************************ End of Global Variable Declaration ********************************** 
 	
+    
+    
+    
 	/**
 	 * Common onClickListener for all the ImageButtons in the Game. 
 	 * */
