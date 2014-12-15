@@ -24,7 +24,7 @@ public class TicTacToe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
         
-        final ImageView iv_new_game = (ImageView) findViewById(R.id.new_game);
+        final ImageView iv_new_game = (ImageView) findViewById(R.id.new_game); //identify 
         final ImageView iv_options = (ImageView) findViewById(R.id.options);
         final ImageView iv_quit = (ImageView) findViewById(R.id.quit);
         
@@ -40,7 +40,7 @@ public class TicTacToe extends Activity {
     	public void onClick(View v) {
     		final ImageView iv = (ImageView) v;
     		if (iv.getId() == R.id.new_game) {
-    			showDialog(NAME_DIALOG_ID);
+    			showDialog(NAME_DIALOG_ID); //dialog
     		}
     		else if(iv.getId() == R.id.options) {
     			options_menu();
